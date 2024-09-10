@@ -1,0 +1,38 @@
+# https://numtide.github.io/devshell
+imports = ["language/c"]
+
+[devshell]
+motd = """
+{106}Welcome to the {33}C{106} devshell{reset}
+$(type -p menu &>/dev/null && menu)
+"""
+
+[language.c]
+libraries = [
+  "cmocka",
+  "openssl"
+]
+
+[[commands]]
+package = "clang"
+category = "lsp"
+
+[[commands]]
+package = "lcov"
+category = "tools"
+
+[[commands]]
+package = "clang-tools"
+category = "tools"
+
+[[commands]]
+package = "gnumake"
+category = "tools"
+
+[[commands]]
+package = "cmake"
+category = "tools"
+
+[[env]]
+name = "CC"
+value = "cc"
